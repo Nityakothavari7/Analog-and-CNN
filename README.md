@@ -89,10 +89,10 @@ https://www.kaggle.com/code/sojanprajapati/emg-signals-for-hand-gesture-classifi
 -> Handling missing values:
     1. Filling missing valuse using moving range fro smooth gaps in EMG signals.
 -> Windowing:
-   1. With a size of 50 each window is splitted and fro overlapping a 25 sized window is used.
+    1. With a size of 50 each window is splitted and fro overlapping a 25 sized window is used.
 -> Threshold values assigning:
-   1. alcualted the varaince of the 3 EMG classes for each window.
+    1. alcualted the varaince of the 3 EMG classes for each window.
 -> Label assigning:
-   1. Assigning label to each window by using medioan of CTS_label values 
+    1. Assigning label to each window by using medioan of CTS_label values 
 
 
