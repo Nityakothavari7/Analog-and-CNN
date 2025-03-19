@@ -21,8 +21,8 @@ https://www.kaggle.com/code/sojanprajapati/emg-signals-for-hand-gesture-classifi
           ClockSpeed: 16 MHz
           Communication: UART, I2C, SPI
          
-   Use in our project:
-   Platform and interface to integrate all the sensors and motors being used in the project.
+   -> Use in our project:
+      Platform and interface to integrate all the sensors and motors being used in the project.
   -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------    
  ## 2. EMGsensor:
  ![image](https://github.com/user-attachments/assets/3c8a7b68-b335-49ab-b66e-0f510ed4e294)
@@ -37,12 +37,12 @@ https://www.kaggle.com/code/sojanprajapati/emg-signals-for-hand-gesture-classifi
        EEPROM:1KB
        ClockSpeed: 16 MHz
        Communication: UART, I2C, SPI
-   Use in our project:
-   1. Captures electrical signals from wrist muscles during movement.
-   2. Variance in EMG signals is analyzed using a threshold-based approach (e.g., 75th
-   percentile method) to detect CTS-related abnormalities.
-   3. If abnormal EMG signals persist, the system can recommend therapy adjustments
-   (e.g., increased rest periods, different wrist angles).
+   -> Use in our project:
+      1. Captures electrical signals from wrist muscles during movement.
+      2. Variance in EMG signals is analyzed using a threshold-based approach (e.g., 75th
+      percentile method) to detect CTS-related abnormalities.
+      3. If abnormal EMG signals persist, the system can recommend therapy adjustments
+      (e.g., increased rest periods, different wrist angles).
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
   ## 3.Servo motor (DS5160):
   ![image](https://github.com/user-attachments/assets/69e09c04-0001-4968-8d4b-97af736773a2)
@@ -53,11 +53,11 @@ https://www.kaggle.com/code/sojanprajapati/emg-signals-for-hand-gesture-classifi
     Control Signal: PWM (50Hz)
     AngleRange: 0° to 180° (or continuous rotation mode)
     Gears: Metal gears for durability)
-   Use in our project:
-   1. Controlled Wrist Positioning for Therapy
-   2. Adaptive Feedback Mechanism
-   3. Real-Time Movement Correction
-   4. Personalized Therapy Adjustments
+   -> Use in our project:
+      1. Controlled Wrist Positioning for Therapy
+      2. Adaptive Feedback Mechanism
+      3. Real-Time Movement Correction
+      4. Personalized Therapy Adjustments
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
   ## 4.OLEDSSD1360
  ![image](https://github.com/user-attachments/assets/98e5cff6-ed2b-4bbd-846c-35d427ff8d05)
@@ -69,14 +69,14 @@ https://www.kaggle.com/code/sojanprajapati/emg-signals-for-hand-gesture-classifi
      PowerConsumption: Low
      Driver IC: SSD1306
      
-Use in our project:
-1. Organic Light-Emitting Diode display uses the powerful
-single-chip CMOS OLED driver controller, the SSD1306.
-2. It displays the EMG value along with the detection.
+-> Use in our project:
+   1. Organic Light-Emitting Diode display uses the powerful
+   single-chip CMOS OLED driver controller, the SSD1306.
+   2. It displays the EMG value along with the detection.
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ## Software used
-Python - fro pre-processing and training the model with RNN.
-Arduino IDE - for programming arduino UNO
+-> Python - fro pre-processing and training the model with RNN.
+-> Arduino IDE - for programming arduino UNO
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ## Steps 
 ## Pre-Processing:
