@@ -1,8 +1,10 @@
 # Wrist Rehabilitation System for CTS patients
 The aim of this project is to develop a cost-effective wearable device for Carpal Tunnel Syndrome(CTS) which is compression on the median nerve within the Carpal Tunnel in the wrist.It provides therapy after predicting the CTS using Reccurent Neural Network(RNN). It makes use of Servo Motors to provide a feedback and creates a personalised experience for the user.
 ## Dataset Acquisition
-We took dataset from kaggle which measures EMG signals at various wrist gestures like hand at rest, wrist flexion, wrist extension, radial deviations and ulnar deviations. Here is the link for the dataset 
+We took dataset from kaggle which measures EMG signals at various wrist gestures like hand at rest, wrist flexion, wrist extension, radial deviations and ulnar deviations. Here are two links one for the dataset the others explaining the features and labels
+https://www.kaggle.com/datasets/sojanprajapati/emg-signal-for-gesture-recognition
 https://www.kaggle.com/code/sojanprajapati/emg-signals-for-hand-gesture-classification-r
+
 ## Hardware components
   ## 1. Arduino Uno:
       Microcontroller: ATmega328P
