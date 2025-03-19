@@ -82,17 +82,17 @@ https://www.kaggle.com/code/sojanprajapati/emg-signals-for-hand-gesture-classifi
 ## Steps 
 ## Pre-Processing:
 -> Data filtering 
-    Filter channels: Flexion, Extension and Standard postion's EMG measures which are from channels 1, 4, 7 from the data set.
-    CTS_labels: If CTS detected (from class 4,7) CTS_label = 1, no CTS detected then CTSA_LABEL = 0.
+    1. Filter channels: Flexion, Extension and Standard postion's EMG measures which are from channels 1, 4, 7 from the data set.
+    2. CTS_labels: If CTS detected (from class 4,7) CTS_label = 1, no CTS detected then CTSA_LABEL = 0.
 -> Class filtering:
-    Removed classes from dataset which are not neccesary like time,
+    1. Removed classes from dataset which are not neccesary like time,
 -> Handling missing values:
-    Filling missing valuse using moving range fro smooth gaps in EMG signals.
+    1. Filling missing valuse using moving range fro smooth gaps in EMG signals.
 -> Windowing:
-    With a size of 50 each window is splitted and fro overlapping a 25 sized window is used.
+   1. With a size of 50 each window is splitted and fro overlapping a 25 sized window is used.
 -> Threshold values assigning:
-    calcualted the varaince of the 3 EMG classes for each window.
+   1. alcualted the varaince of the 3 EMG classes for each window.
 -> Label assigning:
-    Assigning label to each window by using medioan of CTS_label values 
+   1. Assigning label to each window by using medioan of CTS_label values 
 
 
