@@ -4,9 +4,59 @@ The aim of this project is to develop a cost-effective wearable device for Carpa
 We took dataset from kaggle which measures EMG signals at various wrist gestures like hand at rest, wrist flexion, wrist extension, radial deviations and ulnar deviations. Here is the link for the dataset 
 https://www.kaggle.com/code/sojanprajapati/emg-signals-for-hand-gesture-classification-r
 ## Hardware components
-EMG Sensor - Detects the electrical activity of the wrist muscle to classify EMG signals as 'CTS Detected' or 'No CTS'
-ESP32 Vroom - A mircocontroller which acts interface between sensors and the motor
-MPU6050 - Measures the acceleration and rotation of the wrist
+  ## 1. Arduino Uno:
+      Microcontroller: ATmega328P
+      Operating Voltage: 5V
+     InputVoltage (recommended): 7-12V
+      Digital I/O Pins: 14 (6 PWM)
+      AnalogInput Pins: 6
+      FlashMemory: 32 KB(0.5 KB used by bootloader)
+      SRAM:2KB
+      EEPROM:1KB
+      ClockSpeed: 16 MHz
+      Communication: UART, I2C, SPI
+     Use in our project:
+     Platform and interface to integrate all the sensors and motors being used in the project.
+  ## 2. EMGsensor:
+      Microcontroller: ATmega328P
+      Operating Voltage: 5V
+      InputVoltage (recommended): 7-12V
+      Digital I/O Pins: 14 (6 PWM)
+      AnalogInput Pins: 6
+     FlashMemory: 32 KB(0.5 KB used by bootloader)
+      SRAM:2KB
+      EEPROM:1KB
+      ClockSpeed: 16 MHz
+      Communication: UART, I2C, SPI
+     Use in our project:
+     1. Captures electrical signals from wrist muscles during movement.
+     2. Variance in EMG signals is analyzed using a threshold-based approach (e.g., 75th
+     percentile method) to detect CTS-related abnormalities.
+     3. If abnormal EMG signals persist, the system can recommend therapy adjustments
+     (e.g., increased rest periods, different wrist angles).
+  ## 3.Servo motor (DS5160):
+      Operating Voltage: 4.8V– 7.4V
+      Torque: 60 kg·cm (at 7.4V)
+      Speed:0.16 sec/60° (at 7.4V)
+      Control Signal: PWM (50Hz)
+      AngleRange: 0° to 180° (or continuous rotation mode)
+      Gears: Metal gears for durability)
+     Use in our project:
+     1. Controlled Wrist Positioning for Therapy
+     2. Adaptive Feedback Mechanism
+     3. Real-Time Movement Correction
+     4. Personalized Therapy Adjustments
+  ## 4.OLEDSSD1360
+      Resolution: 128 × 64 pixels
+      Display Type: Monochrome OLED
+      Interface: I2C (4-pin) or SPI (7-pin)
+      Operating Voltage: 3.3V– 5V
+      PowerConsumption: Low
+      Driver IC: SSD1306
+     Use in our project:
+     1. Organic Light-Emitting Diode display uses the powerful
+     single-chip CMOS OLED driver controller, the SSD1306.
+     2. It displays the EMG value along with the detection.
 Servo Motor (MG995) - It produces torque and velocity based on the supplied current and voltage. It receives PWM input signal from ESP32 and moves accordingly.
 ## Software used
 MATLAB - for pre-processing and training the neural network model (FNN)
