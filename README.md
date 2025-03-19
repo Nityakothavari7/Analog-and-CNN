@@ -1,10 +1,11 @@
 # Wrist Rehabilitation System for CTS patients
 The aim of this project is to develop a cost-effective wearable device for Carpal Tunnel Syndrome(CTS) which is compression on the median nerve within the Carpal Tunnel in the wrist.It provides therapy after predicting the CTS using Reccurent Neural Network(RNN). It makes use of Servo Motors to provide a feedback and creates a personalised experience for the user.
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ## Dataset Acquisition
 We took dataset from kaggle which measures EMG signals at various wrist gestures like hand at rest, wrist flexion, wrist extension, radial deviations and ulnar deviations. Here are two links one for the dataset the others explaining the features and labels
 https://www.kaggle.com/datasets/sojanprajapati/emg-signal-for-gesture-recognition
 https://www.kaggle.com/code/sojanprajapati/emg-signals-for-hand-gesture-classification-r
-
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ## Hardware components
    ## 1. Arduino Uno:
    ![image](https://github.com/user-attachments/assets/59803a27-3323-4178-9c82-02f85ee22182)
@@ -12,62 +13,71 @@ https://www.kaggle.com/code/sojanprajapati/emg-signals-for-hand-gesture-classifi
          Microcontroller: ATmega328P
          Operating Voltage: 5V
          InputVoltage (recommended): 7-12V
-          Digital I/O Pins: 14 (6 PWM)                                                                                                                                         
-          AnalogInput Pins: 6
-          FlashMemory: 32 KB(0.5 KB used by bootloader)
-          SRAM:2KB
-          EEPROM:1KB
-          ClockSpeed: 16 MHz
-          Communication: UART, I2C, SPI
-         Use in our project:
-         Platform and interface to integrate all the sensors and motors being used in the project.
-      
+          Digital I/O Pins: 14 (6 PWM)                                                                                                                                         
+          AnalogInput Pins: 6
+          FlashMemory: 32 KB(0.5 KB used by bootloader)
+          SRAM:2KB
+          EEPROM:1KB
+          ClockSpeed: 16 MHz
+          Communication: UART, I2C, SPI
+         
+   Use in our project:
+   Platform and interface to integrate all the sensors and motors being used in the project.
+  -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------    
  ## 2. EMGsensor:
+ ![image](https://github.com/user-attachments/assets/3c8a7b68-b335-49ab-b66e-0f510ed4e294)
+
        Microcontroller: ATmega328P
        Operating Voltage: 5V
        InputVoltage (recommended): 7-12V
        Digital I/O Pins: 14 (6 PWM)
        AnalogInput Pins: 6
-   FlashMemory: 32 KB(0.5 KB used by bootloader)
-       SRAM:2KB
-       EEPROM:1KB
-       ClockSpeed: 16 MHz
-       Communication: UART, I2C, SPI
+       FlashMemory: 32 KB(0.5 KB used by bootloader)
+       SRAM:2KB
+       EEPROM:1KB
+       ClockSpeed: 16 MHz
+       Communication: UART, I2C, SPI
    Use in our project:
    1. Captures electrical signals from wrist muscles during movement.
    2. Variance in EMG signals is analyzed using a threshold-based approach (e.g., 75th
    percentile method) to detect CTS-related abnormalities.
    3. If abnormal EMG signals persist, the system can recommend therapy adjustments
    (e.g., increased rest periods, different wrist angles).
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
   ## 3.Servo motor (DS5160):
+  ![image](https://github.com/user-attachments/assets/69e09c04-0001-4968-8d4b-97af736773a2)
+
     Operating Voltage: 4.8V– 7.4V
     Torque: 60 kg·cm (at 7.4V)
     Speed:0.16 sec/60° (at 7.4V)
     Control Signal: PWM (50Hz)
     AngleRange: 0° to 180° (or continuous rotation mode)
     Gears: Metal gears for durability)
-      Use in our project:
-      1. Controlled Wrist Positioning for Therapy
-      2. Adaptive Feedback Mechanism
-      3. Real-Time Movement Correction
-      4. Personalized Therapy Adjustments
+   Use in our project:
+   1. Controlled Wrist Positioning for Therapy
+   2. Adaptive Feedback Mechanism
+   3. Real-Time Movement Correction
+   4. Personalized Therapy Adjustments
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
   ## 4.OLEDSSD1360
-  Resolution: 128 × 64 pixels
-  Display Type: Monochrome OLED
- Interface: I2C (4-pin) or SPI (7-pin)
- Operating Voltage: 3.3V– 5V
- PowerConsumption: Low
- Driver IC: SSD1306
+ ![image](https://github.com/user-attachments/assets/98e5cff6-ed2b-4bbd-846c-35d427ff8d05)
+
+     Resolution: 128 × 64 pixels
+     Display Type: Monochrome OLED
+     Interface: I2C (4-pin) or SPI (7-pin)
+     Operating Voltage: 3.3V– 5V
+     PowerConsumption: Low
+     Driver IC: SSD1306
+     
 Use in our project:
 1. Organic Light-Emitting Diode display uses the powerful
 single-chip CMOS OLED driver controller, the SSD1306.
 2. It displays the EMG value along with the detection.
-Servo Motor (MG995) - It produces torque and velocity based on the supplied current and voltage. It receives PWM input signal from ESP32 and moves accordingly.
-
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ## Software used
 Python - fro pre-processing and training the model with RNN.
 Arduino IDE - for programming arduino UNO
-
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ## Steps 
 ## Pre-Processing:
 -> Data filtering 
