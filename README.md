@@ -142,8 +142,5 @@ classification. Used the following Python libraries:
 for deployment. 
 - NumPy and Pandas – For data processing and structuring EMG data.
  - Matplotlib – To visualize training loss and accuracy for model evaluation.
-- scikit-learn – For data preprocessing, including normalization and train-test
-
-splitting. HARDWARE COMPONENTS USED FOR 
-
+- scikit-learn – For data preprocessing, including normalization and train-test splitting.
 
