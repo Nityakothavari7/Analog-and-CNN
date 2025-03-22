@@ -79,7 +79,7 @@ https://www.kaggle.com/code/sojanprajapati/emg-signals-for-hand-gesture-classifi
  Python - fro pre-processing and training the model with RNN.
  Arduino IDE - for programming arduino UNO
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-# Steps 
+# Methodology 
  ## Data filtering 
 - Filter channels: Flexion, Extension and Standard postion's EMG measures which are from channels 1, 4, 7 from the data set.
 - CTS_labels: If CTS detected (from class 4,7) CTS_label = 1, no CTS detected then CTSA_LABEL = 0.
