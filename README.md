@@ -93,6 +93,57 @@ https://www.kaggle.com/code/sojanprajapati/emg-signals-for-hand-gesture-classifi
 -> Threshold values assigning:
     1. alcualted the varaince of the 3 EMG classes for each window.
 -> Label assigning:
-    1. Assigning label to each window by using medioan of CTS_label values 
+    1. Assigning label to each window by using medioan of CTS_label values
+
+
+2. Arduino Setup and interfacing
+   - Configured the hardware, including the Arduino Uno and the EMG sensor(EMGSEN).
+
+- Connected the EMG sensor: VCC to 5V, GND to GND, and Signal Output to A0 on the Arduino. 
+- Installed necessary drivers, including the CP210x USB to UART driver, to enable communication between Arduino and the PC.
+
+- Uploaded a basic script in Arduino IDE to read analog values from the EMG sensor and display them in the Serial Monitor. 
+
+- Faced initial issues with constant values instead of dynamic muscle signals, which
+were resolved by verifying wiring, electrode positioning, and ensuring proper skin contact.
+
+- Successfully started reading and displaying EMG values, marking the transition to
+
+data transmission and processing. - Integrated the EMG sensor with Arduino and started recording and analyzing muscle
+
+activity signals to identify CTS. - Connected electrodes to the wrist muscles to capture electrical signals and read them
+using the A0 analog input pin on the Arduino.
+- Displayed live EMG readings on the Serial Monitor for verification. CLOUD INTERFACING
+
+ Since Arduino lacks built-in WiFi, created a communication bridge using a laptop. - Wrote a Python script to read EMG values from Arduino through serial
+
+communication (COM port) and transfer them to a Flask-based cloud server. - Hosted the cloud server on the same PC and programmed it to process incoming
+
+EMG signals. 
+- Used a Recurrent Neural Network (RNN) model trained to classify whether CTS
+
+was present or not based on real-time EMG data. - Trained the RNN model using filtered EMG data with TensorFlow and converted it
+
+to TensorFlow Lite (TFLite) for optimized processing on the cloud server. - Flask API received EMG values from Arduino and used the trained RNN model for
+
+prediction. - The model classified the result as either CTS detected (1) or No CTS (0) and
+
+returned the prediction to the Arduino.
+- Once the prediction was received from the cloud, displayed the final result on an
+
+OLED screen connected to the Arduino. - The OLED displayed either "CTS Detected" or "No CTS" based on the model’s
+
+classification. Used the following Python libraries:
+
+- Flask – To set up the cloud server and handle API requests.  --requests – To send EMG data from Arduino to the cloud.
+- serial – To read EMG data from Arduino through serial communication.
+- TensorFlow and TensorFlow Lite – For training the RNN model and optimizing it
+
+for deployment. 
+- NumPy and Pandas – For data processing and structuring EMG data.
+ - Matplotlib – To visualize training loss and accuracy for model evaluation.
+- scikit-learn – For data preprocessing, including normalization and train-test
+
+splitting. HARDWARE COMPONENTS USED FOR 
 
 
