@@ -95,7 +95,7 @@ https://www.kaggle.com/code/sojanprajapati/emg-signals-for-hand-gesture-classifi
 - Assigning label to each window by using medioan of CTS_label values
 
 
-2. Arduino Setup and interfacing
+## Arduino Setup and interfacing
 - Configured the hardware, including the Arduino Uno and the EMG sensor(EMGSEN).
 
 - Connected the EMG sensor: VCC to 5V, GND to GND, and Signal Output to A0 on the Arduino. 
