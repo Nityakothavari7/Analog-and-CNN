@@ -2,9 +2,7 @@
 This project aims to develop a cost-effective wearable device for Carpal Tunnel Syndrome(CTS) which is compression on the median nerve within the Carpal Tunnel in the wrist. It provides therapy after predicting the CTS using a Recurrent Neural Network(RNN). It makes use of Servo Motors to provide feedback and creates a personalized experience for the user.
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ## Dataset Acquisition
-We took a dataset from Kaggle that measures EMG signals at various wrist gestures like hand at rest, wrist flexion, wrist extension, radial deviations, and ulnar deviations. Here are two links one for the dataset and the other explaining the features and labels
-https://www.kaggle.com/datasets/sojanprajapati/emg-signal-for-gesture-recognition
-https://www.kaggle.com/code/sojanprajapati/emg-signals-for-hand-gesture-classification-r
+Syntehtic dataset was created by tracking real time EMG data(milliVolts converted to degrees at two positions 0 and 90)
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ## Hardware components
    ## 1. Arduino Uno:
