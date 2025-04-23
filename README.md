@@ -77,49 +77,51 @@ Syntehtic dataset was created by tracking real time EMG data(milliVolts converte
  Python is used for pre-processing and training the model with RNN.
  Arduino IDE is used for programming Arduino UNO
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 # Methodology 
- ## Data filtering 
-- Filter channels: Flexion, Extension, and Standard position's EMG measures .
-- CTS_labels: If CTS_label = 0(No Cts), CTS_label = 1(Mild) CTS_Label=2(Moderate) CTS_Label=3(Severe).
- ## Class filtering:
-- Removed classes from the dataset that are not necessary
- ## Handling missing values:
-- Filling missing values using a moving range for smooth gaps in EMG signals.
- ## Windowing:
-- With a size of 50 each window is split and for overlapping a 25-sized window is used.
- ## Threshold values assigning:
-- Took 45 degrees as threshold for CTS from research papers.
- ## Label assigning:
-- Assigning a label to each window by using the median of CTS_label values
+ ## Data Collection
+- We collected Surface Electromyography (sEMG) signals by placing the gel electrodes on the Extensor Carpi Radialis (ECR) muscle once at 0°(relaxed position) and the other at 90°(extended position). In total 100 readings were collected at each position, and a dataset of 1000 samples was linearly interpolated for all wrist angles between 0° and 90°.
 
-
-## Arduino Setup and interfacing
-- Configured the hardware, including the Arduino Uno and the EMG sensor(EMGSEN).
-- Connected the EMG sensor: VCC to 5V, GND to GND, and Signal Output to A0 on the Arduino. 
-- Installed necessary drivers, including the CP210x USB to UART driver, to enable communication between Arduino and the PC.
-- Uploaded a basic script in Arduino IDE to read analog values from the EMG sensor and display them in the Serial Monitor. 
-- Faced initial issues with constant values instead of dynamic muscle signals, which were resolved by verifying wiring, electrode positioning, and ensuring proper skin contact.
-- Successfully started reading and displaying EMG values, marking the transition to data transmission and processing.
-- Integrated the EMG sensor with Arduino and started recording and analyzing muscle activity signals to identify CTS.
-- Connected electrodes to the wrist muscles to capture electrical signals and read them using the A0 analog input pin on the Arduino.
-- Displayed live EMG readings on the Serial Monitor for verification.
+## Long Short-Term Memory (LSTM) Model
+After preprocessing CTS labels were one-hot encoded to enable multiclass classification.TensorFlow and Keras libraries was used to built the model, employing the LSTM layer to capture long-term dependencies in muscle signal patterns. We tuned hyperparameters including sequence length, batch size, number of LSTM units, learning rate, activation functions, epochs, and dropout rate to improve perfor mance and prediction accuracy for CTS detection.
   
 ## CLOUD INTERFACING
-- Arduino lacks built-in WiFi, created a communication bridge using a laptop. - Wrote a Python script to read EMG values from Arduino through serial communication (COM port) and transfer them to a Flask-based cloud server.
-- Hosted the cloud server on the same PC and programmed it to process incoming EMG signals. 
-- Used a Recurrent Neural Network (RNN) model trained to classify whether CTS was present or not based on real-time EMG data.
-- Trained the RNN model using filtered EMG data with TensorFlow and converted it to TensorFlow Lite (TFLite) for optimized processing on the cloud server.
-- Flask API received EMG values from Arduino and used the trained RNN model for prediction.
-- The model classified the result as either CTS detected (1) or No CTS (0) and returned the prediction to the Arduino.
-- Once the prediction was received from the cloud, displayed the final result on an OLED screen connected to the Arduino.
-- The OLED displayed either "CTS Detected" or "No CTS" based on the model’s classification. 
+- Real-time EMG signals are read from Arduino through serial communication and then sent to a Flask-based cloud server. The Flask API receives a sequence of 10 EMG values and uses the converted TensorFlow Lite (TFLite) model to predict the severity of CTS.
 
-Used the following Python libraries:
-- Flask – To set up the cloud server and handle API requests.
-- requests – To send EMG data from Arduino to the cloud.
-- serial – To read EMG data from Arduino through serial communication.
-- TensorFlow and TensorFlow Lite – For training the RNN model and optimizing it for deployment. 
-- NumPy and Pandas – For data processing and structuring EMG data.
-- Matplotlib – To visualize training loss and accuracy for model evaluation.
-- scikit-learn – For data preprocessing, including normalization and train-test splitting.
+## Prototype design and 3D printing
+The exoskeleton was designed using Fusion 360. The design includes a semi-open wrist brace with place for the DS5160 servo motor, a flexible platform for Arduino and EMG sensor placement. Further, Servo shaft is connected to palm gear using ball bearing. Polyethylene Terephthalate Glycol(PETG) was used for 3D printing the prototype due to its balance of strength, flexibility and duration.
+
+## Hardware Integration
+
+1: EMG Sensor: Captures muscle electrical activity.
+2: Arduino UNO Microcontroller: Used to receive data,
+control the servo motor, and display output.
+3: OLED Display (SSD1306): Used to visually display the
+CTS prediction result.
+4: Servo Motor DS516: Provides the actuation for wrist
+movement therapy.
+5: Power Supply: Powers the Arduino and components.
+6: Jumper Wires: For connections between components.
+Circuit Connections:
+1) EMG sensor:
+SIG → A0
+GND → GND
+Vs+ → 9V(1st battery)
+Vs- → GND
+GND → Midpoint of conection between
+9V and GND of the two batteries
+2) OLED Display:
+VCC → 5V
+GND → GND
+SDA → A4 (Arduino UNO)
+SCL → A5 (Arduino UNO)
+3) Servo Motor:
+Signal → Digital pin
+VCC → External power source
+GND → Common GND with Arduino
+
+## Actuation (Therapy)
+
+Once the EMG values are read it is sent to the cloud server where the values are classified using the RNN model which will predict wrist movement angle. According to the given threshold values if the individual is detected with CTS the therapy is given in such a way that along with the wrist movement angle +5° angle is added for the therapy. Then this angle is sent to Arduino through the serial communication. The Arduino receives the angle and then it will trigger servo motor to move the wrist to the calculated therapeutic angle.
+
 
