@@ -79,16 +79,16 @@ Syntehtic dataset was created by tracking real time EMG data(milliVolts converte
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 # Methodology 
  ## Data filtering 
-- Filter channels: Flexion, Extension, and Standard position's EMG measures which are from channels 1, 4, 7 from the data set.
-- CTS_labels: If CTS detected (from class 4,7) CTS_label = 1, no CTS detected then CTSA_LABEL = 0.
+- Filter channels: Flexion, Extension, and Standard position's EMG measures .
+- CTS_labels: If CTS_label = 0(No Cts), CTS_label = 1(Mild) CTS_Label=2(Moderate) CTS_Label=3(Severe).
  ## Class filtering:
-- Removed classes from the dataset that are not necessary like time and other channels
+- Removed classes from the dataset that are not necessary
  ## Handling missing values:
 - Filling missing values using a moving range for smooth gaps in EMG signals.
  ## Windowing:
 - With a size of 50 each window is split and for overlapping a 25-sized window is used.
  ## Threshold values assigning:
-- Calculated the variance of the 3 EMG classes for each window.
+- Took 45 degrees as threshold for CTS from research papers.
  ## Label assigning:
 - Assigning a label to each window by using the median of CTS_label values
 
